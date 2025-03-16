@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alphabet</title>
+  <!-- Spline Viewer for 3D Background -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.79/build/spline-viewer.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Spline Background */
+    .spline-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 10;
+    }
+    .hero h1 {
+      font-size: 4.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .hero p {
+      font-size: 1.6rem;
+      margin-top: 15px;
+      color: #ddd;
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 100;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      margin-left: 35px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #FF6A00;
+    }
+
+    /* Services Section */
+    .services {
+      text-align: center;
+      padding: 80px 50px;
+      margin-top: 100vh;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 100%);
+    }
+    .services h2 {
+      font-size: 2.8rem;
+      margin-bottom: 40px;
+      color: #fff;
+    }
+    .service-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .service {
+      width: 280px;
+      padding: 20px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .service:hover {
+      transform: translateY(-10px);
+    }
+    .service img {
+      width: 90px;
+      height: 90px;
+      margin-bottom: 20px;
+    }
+    .service h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .service p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    /* Consultation Section */
+    .consultation {
+      text-align: center;
+      padding: 60px 50px;
+      background: #141414;
+    }
+    .consultation h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #FF6A00;
+    }
+    .consultation p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 25px;
+      line-height: 1.6;
+      color: #ddd;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #FF6A00;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+    .cta-button:hover {
+      background: #e65c00;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 3rem; }
+      .hero p { font-size: 1.2rem; }
+      nav { padding: 15px 20px; }
+      nav ul li { margin-left: 20px; }
+      .service-container { flex-direction: column; align-items: center; }
+      .service { width: 90%; max-width: 300px; }
+      .services, .consultation { padding: 50px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Spline Background -->
+  <div class="spline-container">
+    <spline-viewer url="https://prod.spline.design/VjJXwzKtUtnNHWVw/scene.splinecode"></spline-viewer>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Alphabet</h1>
+    <p>Where Creativity Meets Innovation</p>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">Alphabet</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Services Section -->
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-container">
+      <div class="service">
+        <img src="images/1.png" alt="Web Design">
+        <h3>Web Design</h3>
+        <p>Modern, responsive websites that bring your brand to life.</p>
+      </div>
+      <div class="service">
+        <img src="images/2.png" alt="Graphic Design">
+        <h3>Graphic Design</h3>
+        <p>Creative visuals that leave a lasting impression.</p>
+      </div>
+      <div class="service">
+        <img src="images/3.png" alt="Branding">
+        <h3>Branding</h3>
+        <p>Craft a unique identity for your business.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation Section -->
+  <section class="consultation">
+    <h2>Get Started with a Free Consultation!</h2>
+    <p>At Alphabet, we believe every project starts with an idea. That’s why your first consultation with us is completely free. Our team is ready to help turn your ideas into reality. The cost of our services depends on the time and quality of your project. We work with you to find the best solution that fits your budget and needs, aiming to exceed your expectations every time.</p>
+    <a href="#" class="cta-button">Request Your Free Consultation</a>
+  </section>
+
+</body>
+</html>
