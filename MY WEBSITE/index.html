@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alphabet</title>
-  <!-- Spline Viewer for 3D Background -->
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.79/build/spline-viewer.js"></script>
   <style>
     * {
       margin: 0;
@@ -13,44 +11,32 @@
       box-sizing: border-box;
     }
     body {
-      font-family: 'Arial', sans-serif;
-      background: #000;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
       color: #fff;
       overflow-x: hidden;
     }
 
-    /* Spline Background */
-    .spline-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-    }
-
-    /* Hero Section */
+    /* Centered Site Name */
     .hero {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      position: relative;
       text-align: center;
-      z-index: 10;
+      padding: 150px 20px;
+      background: rgba(0, 0, 0, 0.5);
     }
     .hero h1 {
-      font-size: 4.5rem;
+      font-size: 4rem;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
     .hero p {
-      font-size: 1.6rem;
-      margin-top: 15px;
-      color: #ddd;
+      font-size: 1.5rem;
+      margin-top: 10px;
+      color: #ccc;
     }
 
-    /* Navigation Bar */
+    /* Navigation */
     nav {
       position: fixed;
       top: 0;
@@ -64,7 +50,7 @@
       z-index: 100;
     }
     .logo {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: bold;
     }
     nav ul {
@@ -72,13 +58,13 @@
       display: flex;
     }
     nav ul li {
-      margin-left: 35px;
+      margin-left: 30px;
     }
     nav ul li a {
       text-decoration: none;
-      color: #fff;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
+      color: white;
+      font-size: 1rem;
+      transition: color 0.3s;
     }
     nav ul li a:hover {
       color: #FF6A00;
@@ -87,14 +73,12 @@
     /* Services Section */
     .services {
       text-align: center;
-      padding: 80px 50px;
-      margin-top: 100vh;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,20,20,1) 100%);
+      padding: 100px 50px;
+      background: #141414;
     }
     .services h2 {
-      font-size: 2.8rem;
-      margin-bottom: 40px;
-      color: #fff;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
     }
     .service-container {
       display: flex;
@@ -103,19 +87,20 @@
       flex-wrap: wrap;
     }
     .service {
-      width: 280px;
+      width: 250px;
       padding: 20px;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
       text-align: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .service:hover {
-      transform: translateY(-10px);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(255, 106, 0, 0.3);
     }
     .service img {
-      width: 90px;
-      height: 90px;
+      width: 80px;
+      height: 80px;
       margin-bottom: 20px;
     }
     .service h3 {
@@ -127,36 +112,53 @@
       color: #ccc;
     }
 
-    /* Consultation Section */
-    .consultation {
+    /* Service Info Section */
+    .service-info {
       text-align: center;
-      padding: 60px 50px;
-      background: #141414;
+      padding: 50px 20px;
+      background: #1a1a1a;
     }
-    .consultation h2 {
-      font-size: 2.2rem;
+    .service-info h2 {
+      font-size: 2rem;
       margin-bottom: 20px;
       color: #FF6A00;
     }
-    .consultation p {
-      font-size: 1.1rem;
+    .service-info p {
+      font-size: 1.2rem;
       max-width: 800px;
-      margin: 0 auto 25px;
+      margin: 0 auto 20px;
       line-height: 1.6;
       color: #ddd;
     }
     .cta-button {
       display: inline-block;
-      padding: 12px 25px;
+      padding: 10px 30px;
       background: #FF6A00;
       color: #fff;
       text-decoration: none;
       border-radius: 5px;
-      font-size: 1rem;
-      transition: background 0.3s ease;
+      transition: background 0.3s;
     }
     .cta-button:hover {
       background: #e65c00;
+    }
+
+    /* About Section */
+    .about {
+      text-align: center;
+      padding: 100px 50px;
+      background: #141414;
+    }
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+    .about p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+      color: #ddd;
     }
 
     /* Responsive Design */
@@ -165,18 +167,12 @@
       .hero p { font-size: 1.2rem; }
       nav { padding: 15px 20px; }
       nav ul li { margin-left: 20px; }
-      .service-container { flex-direction: column; align-items: center; }
-      .service { width: 90%; max-width: 300px; }
-      .services, .consultation { padding: 50px 20px; }
+      .services, .about { padding: 50px 20px; }
+      .service { width: 100%; max-width: 300px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Spline Background -->
-  <div class="spline-container">
-    <spline-viewer url="https://prod.spline.design/VjJXwzKtUtnNHWVw/scene.splinecode"></spline-viewer>
-  </div>
 
   <!-- Hero Section -->
   <div class="hero">
@@ -184,7 +180,7 @@
     <p>Where Creativity Meets Innovation</p>
   </div>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation -->
   <nav>
     <div class="logo">Alphabet</div>
     <ul>
@@ -216,11 +212,23 @@
     </div>
   </section>
 
-  <!-- Consultation Section -->
-  <section class="consultation">
-    <h2>Get Started with a Free Consultation!</h2>
-    <p>At Alphabet, we believe every project starts with an idea. That’s why your first consultation with us is completely free. Our team is ready to help turn your ideas into reality. The cost of our services depends on the time and quality of your project. We work with you to find the best solution that fits your budget and needs, aiming to exceed your expectations every time.</p>
-    <a href="#" class="cta-button">Request Your Free Consultation</a>
+  <!-- Service Info Section -->
+  <section class="service-info">
+    <h2>Start with a Free Consultation!</h2>
+    <p>At Alphabet, we believe every project starts with a great idea. That’s why your first consultation with us is completely free. Our team is ready to help turn your ideas into reality.</p>
+    <p>Our service fees are tailored based on the time and quality of your project. We work closely with you to provide the best solutions that fit your budget and needs, ensuring we exceed your expectations.</p>
+    <a href="#" class="cta-button">Request a Free Consultation</a>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>About Us</h2>
+    <p>
+      At Alphabet, we believe in the power of creativity and technology to transform ideas into reality. 
+      Our team of passionate designers and innovators work tirelessly to deliver cutting-edge solutions 
+      that inspire and empower our clients. Whether it's crafting stunning websites, designing impactful 
+      visuals, or building memorable brands, we’re here to make your vision shine.
+    </p>
   </section>
 
 </body>
